@@ -2,7 +2,6 @@
 *.box
 accounts.yml
 GuestIPHack.ps1
-http/*
 manifest.json
 output-*
 packer_cache/
