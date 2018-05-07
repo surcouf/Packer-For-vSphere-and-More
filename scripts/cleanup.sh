@@ -5,21 +5,14 @@ set -x
 
 # Debian/Ubuntu
 if [ -f /etc/debian_version ]; then
-  codename="$(facter lsbdistcodename)"
   #cleanup apt
   sudo apt-get clean
 fi
 
 # RHEL
 if [ -f /etc/redhat-release ]; then
-  codename="$(facter operatingsystem)"
-  if [[ $codename != "Fedora" ]]; then
-    sudo yum clean all
-    sudo rm -rf /var/cache/yum
-  fi
-  if [[ $codename == "Fedora" ]]; then
-    sudo dnf clean all
-  fi
+  sudo yum clean all
+  sudo rm -rf /var/cache/yum
 fi
 
 #Stop services for cleanup
